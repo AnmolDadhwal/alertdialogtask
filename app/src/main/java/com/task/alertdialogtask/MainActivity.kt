@@ -11,36 +11,36 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     var etnum: EditText?=null
-    var btncal: Button?=null
-    var array= arrayOf("Press Add to add${etnum},Press Sub to Sub ${etnum},Press 0 to reset")
+    var cal: Button?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         etnum=findViewById(R.id.etnum)
-        btncal=findViewById(R.id.btncal)
+        cal=findViewById(R.id.btncal)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        btncal?.setOnClickListener {
+        cal?.setOnClickListener {
             if (etnum?.text?.trim().isNullOrEmpty()){
                 etnum?.error="Enter any number"
             }else{
                 AlertDialog.Builder(this).apply {
                     setTitle("Hello")
-                    setSingleChoiceItems(array,0,{_,_,->})
-                    setPositiveButton("Add${etnum}"){_,_->
-                        etnum.setText("${etnum.text.toString().trim().toInt().plus("${etnum}")}")
+                    setMessage("Press ADD to add ${etnum?.text.toString().trim()} \nPress SUB to subtract ${etnum?.text.toString().trim()} \nPress 0 to reset")
+                    setCancelable(false)
+                    setPositiveButton("Add${etnum?.text.toString().trim()}"){_,_->
+                        etnum?.setText("${etnum?.text.toString().trim().toInt()+etnum?.text.toString().trim().toInt()}")
                     }
-                    setNegativeButton("Sub${etnum}"){_,_->
-                        etnum.setText("${etnum.text.toString().trim().toInt().minus("${etnum}")}")
+                    setNegativeButton("Sub${etnum?.text.toString().trim()}"){_,_->
+                        etnum?.setText("${etnum?.text.toString().trim().toInt()-etnum?.text.toString().trim().toInt()}")
                         }
-                    setNeutralButton("0${etnum}"){_,_->
-                        etnum.setText("0")
+                    setNeutralButton("0"){_,_->
+                        etnum?.setText("0")
                     }
-                        setCancelable(false)
+                    show()
                 }
             }
         }
