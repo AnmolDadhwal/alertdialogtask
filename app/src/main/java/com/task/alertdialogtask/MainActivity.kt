@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     var etnum: EditText?=null
     var btncal: Button?=null
-    var array= arrayOf("Press Add to add${etnum},Press - to Sub ${etnum},Press 0 to reset")
+    var array= arrayOf("Press Add to add${etnum},Press Sub to Sub ${etnum},Press 0 to reset")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

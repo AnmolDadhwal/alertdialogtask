@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">alertdialogtask</string>
     <string name="Enter_any_number">Enter any number</string>
-    <string name="perform_calculation">Perform Calculation</string>
+    <string name="perform_calculation">Perform Calculations</string>
 </resources>
