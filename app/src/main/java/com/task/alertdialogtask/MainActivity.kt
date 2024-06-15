@@ -27,15 +27,16 @@ class MainActivity : AppCompatActivity() {
             if (etnum?.text?.trim().isNullOrEmpty()){
                 etnum?.error="Enter any number"
             }else{
+                var num=etnum?.text.toString().trim()
                 AlertDialog.Builder(this).apply {
                     setTitle("Hello")
-                    setMessage("Press ADD to add ${etnum?.text.toString().trim()} \nPress SUB to subtract ${etnum?.text.toString().trim()} \nPress 0 to reset")
+                    setMessage("Press ADD to add ${num} \nPress SUB to subtract ${num} \nPress 0 to reset")
                     setCancelable(false)
-                    setPositiveButton("Add${etnum?.text.toString().trim()}"){_,_->
-                        etnum?.setText("${etnum?.text.toString().trim().toInt()+etnum?.text.toString().trim().toInt()}")
+                    setPositiveButton("Add${num}"){_,_->
+                        etnum?.setText("${num.toInt()+num.toInt()}")
                     }
-                    setNegativeButton("Sub${etnum?.text.toString().trim()}"){_,_->
-                        etnum?.setText("${etnum?.text.toString().trim().toInt()-etnum?.text.toString().trim().toInt()}")
+                    setNegativeButton("Sub${num}"){_,_->
+                        etnum?.setText("${num.toInt()-num.toInt()}")
                         }
                     setNeutralButton("0"){_,_->
                         etnum?.setText("0")
